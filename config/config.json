@@ -1,0 +1,16 @@
+{
+  "android_latest_version": "",
+  "android_min_supported_version": "",
+  "android_gradual_updates": [],
+  "android_forced_update_versions": [],
+  "android_ignore_update_versions": [],
+  "ios_latest_version": "",
+  "ios_min_supported_version": "",
+  "ios_gradual_updates": [],
+  "ios_forced_update_versions": [],
+  "ios_ignore_update_versions": [],
+  "update_message": "",
+  "weight_sum": 4,
+  "is_valid": false,
+  "checksum": 2751
+}
