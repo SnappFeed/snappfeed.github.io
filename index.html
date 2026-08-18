@@ -18,10 +18,12 @@
       --accent: #e91e63;
       --notice: #fff8df;
       --notice-text: #4f3b00;
+      --service-background: #fff4f8;
+      --service-border: #e91e63;
+      --service-muted: #6e3a50;
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -76,16 +78,11 @@
       letter-spacing: -0.02em;
     }
 
-    h3 {
-      margin-top: 26px;
-      font-size: 1.08rem;
-    }
-
+    h3 { margin-top: 26px; font-size: 1.08rem; }
     p, li { max-width: 78ch; }
-
     .updated, .intro { color: var(--muted); }
 
-    .contact-card {
+    .contact-card, nav {
       margin-top: 24px;
       padding: 18px 20px;
       border: 1px solid var(--border);
@@ -100,22 +97,34 @@
       color: var(--notice-text);
     }
 
-    nav {
-      margin: 26px 0 8px;
-      padding: 18px 22px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
+    .service-label {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--service-border);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
+
+    .service-summary { color: var(--service-muted); }
+
+    .service-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+      padding-top: 20px;
+      border-top: 1px solid var(--service-border);
+    }
+
+    .service-links p { margin: 0; }
+    .service-links a { overflow-wrap: anywhere; }
 
     nav strong { display: block; margin-bottom: 8px; }
-
-    nav ol {
-      margin: 0;
-      columns: 2;
-      column-gap: 32px;
-      padding-left: 1.2rem;
-    }
-
+    nav ol { margin: 0; columns: 2; column-gap: 32px; padding-left: 1.2rem; }
     nav li { break-inside: avoid; }
 
     a {
@@ -125,7 +134,6 @@
     }
 
     a:hover { text-decoration-thickness: 2px; }
-
     ul { padding-left: 1.35rem; }
 
     footer {
@@ -147,6 +155,7 @@
       }
 
       nav ol { columns: 1; }
+      .service-links { grid-template-columns: 1fr; }
     }
 
     @media (prefers-color-scheme: dark) {
@@ -159,6 +168,9 @@
         --link: #73b3ff;
         --notice: #332b12;
         --notice-text: #ffe7a1;
+        --service-background: #2d1821;
+        --service-border: #ff6b9f;
+        --service-muted: #efb5ca;
       }
     }
   </style>
@@ -168,324 +180,301 @@
     <header>
       <div class="brand"><span class="brand-mark" aria-hidden="true"></span>SnappFeed</div>
       <h1>Privacy Policy</h1>
-      <p class="updated"><strong>Last updated:</strong> July 14, 2026</p>
+      <p class="updated"><strong>Effective and last updated:</strong> August 18, 2026</p>
       <p class="intro">
-        This Privacy Policy explains how SnappFeed accesses, uses, stores, and protects information
-        when you use the SnappFeed mobile application on iOS or Android. It also describes
-        third-party services used by the app.
+        This Privacy Policy explains how information is accessed, used, stored, disclosed, and
+        protected by the SnappFeed mobile application on iOS or Android (the "App"). It covers the
+        local journal and the services integrated directly into the native App.
       </p>
       <div class="contact-card">
-        <strong>Developer and privacy contact</strong><br>
+        <strong>App publisher and privacy contact</strong><br>
         Zakez Fayaz<br>
         <a href="mailto:zakezfayaz@outlook.com">zakezfayaz@outlook.com</a>
       </div>
     </header>
 
     <nav aria-label="Contents">
-      <strong>Contents</strong>
+      <strong>SnappFeed Policy contents</strong>
       <ol>
-        <li><a href="#about">About SnappFeed</a></li>
-        <li><a href="#local-data">Local information</a></li>
+        <li><a href="#scope">SnappFeed scope</a></li>
+        <li><a href="#local">Local journal, images, and HTML</a></li>
         <li><a href="#permissions">Device permissions</a></li>
-        <li><a href="#third-parties">Third-party services</a></li>
-        <li><a href="#collection">Collection and tracking</a></li>
-        <li><a href="#purpose">Purpose of processing</a></li>
+        <li><a href="#analytics">Analytics, diagnostics, and maps</a></li>
+        <li><a href="#notifications">Push notifications</a></li>
+        <li><a href="#sharing">Service providers and disclosures</a></li>
+        <li><a href="#purposes">Purposes and legal bases</a></li>
+        <li><a href="#tracking">Advertising, sale, and tracking</a></li>
         <li><a href="#retention">Retention and deletion</a></li>
         <li><a href="#rights">Your choices and rights</a></li>
-        <li><a href="#security">Security</a></li>
+        <li><a href="#security">Security and transfers</a></li>
         <li><a href="#children">Children's privacy</a></li>
-        <li><a href="#international">International processing</a></li>
-        <li><a href="#external-links">External links</a></li>
-        <li><a href="#changes">Policy changes</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#changes">Changes and contact</a></li>
       </ol>
     </nav>
 
-    <section id="about">
-      <h2>1. About SnappFeed</h2>
+    <section id="scope">
+      <h2>1. SnappFeed scope</h2>
       <p>
-        SnappFeed is a personal, location-based memory application. It allows you to associate photos
-        with geographic locations and view your saved memories on a map or in a list.
+        This part of the Policy covers the native SnappFeed location-based journal and the tools
+        integrated directly into it. SnappFeed lets you create local map memories using:
       </p>
-      <p>The current version of SnappFeed:</p>
       <ul>
-        <li>does not require registration or a user account;</li>
-        <li>does not provide public profiles, social networking, messaging, or public content sharing;</li>
-        <li>does not display advertising;</li>
-        <li>does not offer in-app purchases or subscriptions;</li>
-        <li>does not use advertising-tracking SDKs;</li>
-        <li>does not use an analytics SDK operated by SnappFeed;</li>
-        <li>does not operate a SnappFeed backend server for storing your photos, memories, titles, or descriptions.</li>
+        <li>photos captured with the camera or selected from your photo library;</li>
+        <li>images downloaded from an HTTPS image URL you provide;</li>
+        <li>HTML content entered and previewed by you;</li>
+        <li>titles, descriptions, timestamps, and selected map locations.</li>
       </ul>
+      <p>
+        The sections below describe these local features and the native analytics, diagnostics,
+        maps, and notification tools used by SnappFeed.
+      </p>
     </section>
 
-    <section id="local-data">
-      <h2>2. Information stored locally on your device</h2>
-      <p>
-        When you choose to create or save a memory, SnappFeed may store the following information
-        in the app's private storage area on your device:
-      </p>
+    <section id="local">
+      <h2>2. Local journal, image URLs, and HTML</h2>
+      <p>When you create a local memory, the App may store the following in its private device storage:</p>
       <ul>
         <li>photos captured or selected by you;</li>
-        <li>geographic coordinates or locations selected by you;</li>
+        <li>a locally cached image downloaded from a URL you enter;</li>
+        <li>geographic coordinates selected by you or obtained with your permission;</li>
         <li>titles and descriptions entered by you;</li>
-        <li>app settings and preferences;</li>
-        <li>information required to organize and display your saved memories.</li>
+        <li>HTML content and a locally generated snapshot preview, if you use the HTML feature;</li>
+        <li>local file references, timestamps, onboarding status, and app preferences.</li>
       </ul>
       <p>
-        This locally stored content is not uploaded to a SnappFeed-operated server, and the developer
-        does not have direct remote access to it.
+        When you enter an image URL, the App connects to that URL, checks that it uses HTTPS and
+        returns a supported image within the App's size limit, then saves a local copy. The image host
+        necessarily receives your IP address and standard request metadata. SnappFeed does not upload
+        the resulting local copy to a SnappFeed-operated storage server.
       </p>
       <p>
-        Depending on your device, operating system, and backup settings, locally stored app data may be
-        included in an Apple iCloud backup, an Android device backup, or another backup service configured
-        by you. Those backups are controlled by you and are subject to the privacy practices of the relevant
-        platform or backup provider.
+        HTML you enter is stored locally. The App previews it with JavaScript and website storage
+        disabled, then creates a local image snapshot for its map marker. Your HTML, snapshot, journal
+        photos, titles, descriptions, and saved memories are not uploaded to a SnappFeed-operated
+        storage server. The publisher does not have direct remote access to content that remains only
+        in the App's private storage.
+      </p>
+      <p>
+        Locally stored data may be included in a device or cloud backup if you enable a backup service.
+        Backup copies are controlled by you and the relevant platform or backup provider.
       </p>
     </section>
 
     <section id="permissions">
       <h2>3. Device permissions</h2>
-      <p>SnappFeed requests permissions only when they are needed for a feature.</p>
 
       <h3>Camera</h3>
-      <p>Camera access is used only when you choose to take a new photo within the app.</p>
+      <p>Camera access is used when you choose to take a photo for a local memory.</p>
 
-      <h3>Photos and media</h3>
-      <p>Access to photos or media is used when you choose an existing image to add to a memory.</p>
+      <h3>Photos</h3>
       <p>
-        Where supported, SnappFeed uses the platform's system photo picker so that you can select
-        specific images without granting broad access to your entire photo library.
+        Photo-library access is used when you choose an existing image. Where supported, a system photo
+        picker lets you choose specific images. The native journal does not scan your library in the
+        background.
       </p>
-      <p>SnappFeed does not scan or upload your photo library in the background.</p>
 
-      <h3>Location while using the app</h3>
-      <p>Location access may be used to:</p>
+      <h3>Location while using the App</h3>
+      <p>Within the SnappFeed journal, location can be used to:</p>
       <ul>
-        <li>show your current position on the map;</li>
-        <li>let you associate a location with a memory;</li>
-        <li>help you choose or confirm a geographic point.</li>
+        <li>show your current position and associate a map point with a local memory;</li>
+        <li>let you choose where a photo, downloaded image, or HTML memory appears on the map.</li>
       </ul>
-      <p>The current version of SnappFeed does not request continuous background location access.</p>
+      <p>The App does not request continuous background location access.</p>
 
-      <h3>Managing permissions</h3>
+      <h3>Notifications</h3>
       <p>
-        These permissions are optional. You can deny or revoke Camera, Photos/Media, and Location
-        permissions at any time through your device settings on iOS or Android.
+        Notification access is used to deliver enabled alerts and open relevant links in the App. You
+        control alert presentation in iOS or Android settings.
       </p>
+
       <p>
-        If a permission is denied or revoked, only the feature that depends on that permission may
-        become unavailable.
+        You can deny or revoke permissions in device settings. A feature that depends on a denied
+        permission may not work, but unrelated features should remain available.
       </p>
     </section>
 
-    <section id="third-parties">
-      <h2>4. Third-party services</h2>
+    <section id="analytics">
+      <h2>4. Analytics, diagnostics, and maps</h2>
+      <p>The current App includes the following SDKs and services:</p>
+
+      <h3>Firebase</h3>
+      <p>
+        Google Firebase Analytics, Crashlytics, Installations, and Cloud Messaging can process App
+        interactions, app-installation and device identifiers, notification interactions, device and
+        operating-system information, crash stack traces, application state, performance or transport
+        metadata, and related diagnostics.
+      </p>
+
+      <h3>AppMetrica</h3>
+      <p>
+        AppMetrica can process app interactions, device and app metadata, coarse location, technical or
+        diagnostic information, purchase-related signals supported by the SDK, and other analytics data.
+        The App reports events such as notification receipt or click, store-review requests, configuration
+        failures, and page-load failures.
+      </p>
 
       <h3>Google Maps Platform</h3>
       <p>
-        SnappFeed uses <strong>Google Maps Platform</strong>, including the Maps SDK for iOS and/or
-        the Maps SDK for Android, to display maps and location-related features.
+        Google Maps Platform provides map content. It can process map interactions, device identifiers,
+        request metadata, crash and performance information, IP address, and location-related information
+        needed for the map feature you use.
+      </p>
+    </section>
+
+    <section id="notifications">
+      <h2>5. Push notifications</h2>
+      <p>
+        Apple Push Notification service or Google push services issue a device token, and Firebase Cloud
+        Messaging issues an FCM registration token associated with an app installation. SnappFeed also
+        integrates AppMetrica Push for notification delivery and measurement.
       </p>
       <p>
-        When map features are used, the app communicates with Google's systems to obtain map data and
-        related resources. Depending on the platform, SDK version, configuration, and features used,
-        Google may process information such as:
+        Notification payloads and interactions may be processed for delivery, display, navigation,
+        analytics, security, and troubleshooting. You can disable notification alerts in device settings.
+        Disabling alerts may not immediately invalidate an existing registration token; uninstalling the
+        App or token rotation normally causes it to expire or be replaced.
       </p>
+    </section>
+
+    <section id="sharing">
+      <h2>6. SnappFeed service providers and disclosures</h2>
+      <p>Information may be processed by or disclosed to:</p>
       <ul>
-        <li>device and operating-system metadata;</li>
-        <li>Maps SDK version and request metadata;</li>
-        <li>IP address;</li>
-        <li>SDK crash diagnostics, stack traces, or stability metrics;</li>
-        <li>a Maps SDK-specific pseudonymous identifier;</li>
-        <li>map interaction events, such as panning or zooming;</li>
-        <li>location-related information when it is necessary for a map feature you choose to use and permission has been granted.</li>
+        <li>Google, for Firebase and Google Maps Platform;</li>
+        <li>AppMetrica, for analytics, diagnostics, and push messaging;</li>
+        <li>Apple, for the App Store, device services, push notifications, and optional backups;</li>
+        <li>GitHub Pages, for this Policy's public hosting;</li>
+        <li>the host of an image URL you choose, when the App downloads that image;</li>
+        <li>authorities or other parties when required by law or necessary to protect rights and safety.</li>
       </ul>
       <p>
-        Google processes this information under its own privacy policy, terms, SDK settings, and
-        platform privacy disclosures.
+        These providers process information under their own terms, privacy notices, and contractual
+        obligations.
       </p>
-      <p>SnappFeed does not intentionally send photos selected from your Camera or Photos/Media library to Google Maps.</p>
       <ul>
         <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
-        <li><a href="https://cloud.google.com/maps-platform/terms">Google Maps Platform Terms of Service</a></li>
-        <li><a href="https://developers.google.com/maps/documentation/ios-sdk/policies">Maps SDK for iOS policies</a></li>
-        <li><a href="https://developers.google.com/maps/documentation/android-sdk/policies">Maps SDK for Android policies</a></li>
-        <li><a href="https://developers.google.com/maps/documentation/android-sdk/play-data-disclosure">Maps SDK for Android data disclosure information</a></li>
-        <li><a href="https://developers.google.com/maps/documentation/ios-sdk/apple-privacy-policy">Maps SDK for iOS App Store privacy information</a></li>
-      </ul>
-      <p>Google Maps attribution displayed within the app must not be removed or obscured.</p>
-
-      <h3>Apple, Google Play, and operating-system services</h3>
-      <p>
-        The operating system manages permission prompts for Camera, Photos/Media, and Location.
-      </p>
-      <p>Apple and Google may also independently process technical or diagnostic information through services such as:</p>
-      <ul>
-        <li>the Apple App Store or Google Play;</li>
-        <li>TestFlight or Google Play testing services;</li>
-        <li>operating-system diagnostics and crash reporting;</li>
-        <li>iCloud or Android device backup;</li>
-        <li>security and integrity services.</li>
-      </ul>
-      <p>
-        This processing is controlled by Apple, Google, the operating system, and your device settings.
-      </p>
-      <ul>
+        <li><a href="https://firebase.google.com/support/privacy">Firebase privacy and security information</a></li>
+        <li><a href="https://developers.google.com/maps/documentation/ios-sdk/apple-privacy-policy">Google Maps Platform privacy information</a></li>
+        <li><a href="https://appmetrica.yandex.com/docs/en/data-security/app-privacy-apple">AppMetrica App Store privacy information</a></li>
         <li><a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a></li>
-        <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+        <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a></li>
       </ul>
+    </section>
 
-      <h3>Software libraries</h3>
+    <section id="purposes">
+      <h2>7. Purposes of processing and legal bases</h2>
+      <p>Information is processed to:</p>
+      <ul>
+        <li>provide local photo, image URL, HTML, and map-memory features;</li>
+        <li>maintain local App state and preferences;</li>
+        <li>deliver and measure notifications;</li>
+        <li>measure use, diagnose failures, prevent abuse, and improve reliability and performance;</li>
+        <li>comply with legal duties, resolve disputes, and enforce applicable terms.</li>
+      </ul>
       <p>
-        SnappFeed uses software libraries for functions such as local storage, image selection and
-        processing, dependency management, image display, and map integration.
-      </p>
-      <p>
-        In the current version, these libraries do not create a SnappFeed user account or a
-        SnappFeed-operated online profile. A library may facilitate a network request when a feature
-        relies on an external service; in that case, the privacy practices of the relevant external
-        service apply.
+        Depending on the feature and your location, processing may rely on your consent, performance of
+        a contract or requested service, legitimate interests such as security and service improvement,
+        or compliance with law. You can withdraw permission-based consent through device settings or the
+        controls described below. Withdrawal does not affect processing already lawfully completed.
       </p>
     </section>
 
-    <section id="collection">
-      <h2>5. Data collection, sharing, selling, advertising, and tracking</h2>
-      <p>In the current version, SnappFeed itself:</p>
-      <ul>
-        <li>does not sell personal information;</li>
-        <li>does not share personal information with data brokers;</li>
-        <li>does not use personal information for targeted advertising;</li>
-        <li>does not track users across apps or websites owned by other companies;</li>
-        <li>does not operate advertising or user-behavior analytics services;</li>
-        <li>does not intentionally collect your locally stored photos, titles, descriptions, or memories on a SnappFeed-operated server.</li>
-      </ul>
+    <section id="tracking">
+      <h2>8. Advertising, sale, and tracking</h2>
       <p>
-        Third-party services, including Google Maps Platform and mobile platform services, may process
-        technical, diagnostic, request, interaction, or location-related information as described in Section 4.
+        The App publisher does not sell your local journal content or personal information to data brokers.
+        The local-journal feature does not use your photos, downloaded images, HTML, or saved memories for
+        advertising.
       </p>
-    </section>
-
-    <section id="purpose">
-      <h2>6. Purpose of processing</h2>
-      <p>Information is accessed or processed only for purposes such as:</p>
-      <ul>
-        <li>allowing you to take or select a photo;</li>
-        <li>saving and displaying a location-based memory;</li>
-        <li>displaying maps and map content;</li>
-        <li>showing your current location when you request that feature;</li>
-        <li>maintaining app functionality, security, reliability, and compatibility;</li>
-        <li>complying with applicable legal obligations.</li>
-      </ul>
-      <p>SnappFeed does not use your locally stored memories for advertising, profiling, or automated decision-making.</p>
+      <p>
+        The current iOS native App does not ask for App Tracking Transparency permission and does not
+        intentionally use the Apple advertising identifier to track you across apps and websites owned by
+        other companies. Analytics, notification, and device identifiers are used for the purposes described
+        in this Policy.
+      </p>
     </section>
 
     <section id="retention">
-      <h2>7. Retention and deletion</h2>
-      <p>Locally stored information remains on your device until one of the following occurs:</p>
+      <h2>9. Retention and deletion</h2>
       <ul>
-        <li>you delete a memory or photo within the app;</li>
-        <li>you clear the app's local data, where supported;</li>
-        <li>you uninstall SnappFeed;</li>
-        <li>you erase or reset the device.</li>
+        <li>
+          <strong>Local memories:</strong> photos, downloaded images, HTML, preview snapshots, titles,
+          descriptions, and map points remain on your device until you delete them, clear App data,
+          uninstall the App, or erase the device. Backup copies follow your backup provider's schedule.
+        </li>
+        <li>
+          <strong>Local state:</strong> onboarding and preferences remain until replaced, cleared, or
+          removed with the App.
+        </li>
+        <li>
+          <strong>Push identifiers:</strong> remain usable until rotated, invalidated, deleted by the relevant
+          service, or no longer needed for notification delivery.
+        </li>
+        <li>
+          <strong>Analytics and diagnostics:</strong> are retained under the configured Firebase,
+          AppMetrica, and Google Maps retention settings for as long as needed to provide, secure,
+          measure, and improve the native App, after which they are deleted or aggregated.
+        </li>
       </ul>
       <p>
-        Uninstalling SnappFeed will normally remove information stored in the app's private local storage.
-        Copies may remain in an iCloud, Android, device, or third-party backup until those backups are deleted
-        or replaced according to your backup settings.
-      </p>
-      <p>
-        Because SnappFeed does not maintain a server-side account or database of your memories, the developer
-        generally cannot remotely view, recover, export, or delete information stored only on your device.
-      </p>
-      <p>
-        Information independently processed by Google, Apple, or another platform provider is retained and
-        deleted under that provider's policies and controls.
+        The SnappFeed journal does not create a server-side SnappFeed account. Deleting a memory removes
+        its active local record and associated locally managed content, subject to platform storage and
+        backup behavior.
       </p>
     </section>
 
     <section id="rights">
-      <h2>8. Your choices and privacy rights</h2>
+      <h2>10. Your choices and privacy rights</h2>
       <p>You can:</p>
       <ul>
-        <li>revoke Camera, Photos/Media, and Location permissions in your device settings;</li>
-        <li>delete memories and photos from within the app;</li>
-        <li>remove local app data by uninstalling SnappFeed;</li>
-        <li>manage device and cloud backup settings;</li>
-        <li>contact the developer with a privacy question.</li>
+        <li>deny or revoke Camera, Photos, Location, and Notification permissions in device settings;</li>
+        <li>delete individual local memories or remove local App data by uninstalling the App;</li>
+        <li>manage iCloud, device, or other backup settings;</li>
+        <li>contact the App publisher with a privacy request or objection.</li>
       </ul>
       <p>
-        Depending on where you live, you may have additional rights under applicable privacy law,
-        including the right to receive information, object to certain processing, request restriction,
-        or submit a complaint to a data-protection authority.
-      </p>
-      <p>
-        Because SnappFeed does not use accounts or maintain a server-side database of user memories,
-        the developer may not possess information that can be associated with, retrieved for, or deleted
-        on behalf of a specific user.
-      </p>
-      <p>
-        Requests involving information independently processed by Google, Apple, or another platform provider
-        should be submitted through that provider's privacy tools and procedures.
+        Depending on applicable law, you may have rights to access, correct, delete, restrict, port, or
+        object to processing, withdraw consent, or complain to a data-protection authority. To make a
+        request about data controlled by the App publisher, email
+        <a href="mailto:zakezfayaz@outlook.com">zakezfayaz@outlook.com</a>. We may need enough
+        information to verify and locate the relevant records. We may not be able to identify records that
+        are stored only on your device or retained only in aggregated or pseudonymous form.
       </p>
     </section>
 
     <section id="security">
-      <h2>9. Security</h2>
+      <h2>11. Security and international processing</h2>
       <p>
-        SnappFeed stores app information in the app's private storage area on your device and relies on
-        security protections provided by iOS or Android.
+        The App relies on iOS or Android private storage, transport security, access controls, and
+        service-provider safeguards. HTML previews run with JavaScript and website storage disabled, and
+        remote images are accepted only from supported HTTPS URLs within configured limits. No method of
+        storage or transmission is completely secure, so absolute security cannot be guaranteed. Protect
+        your device, passcode, platform account, and backups.
       </p>
       <p>
-        No method of electronic storage or transmission is completely secure. You are responsible for
-        protecting your device, passcode, Apple Account or Google Account, and backups.
+        Providers may process information in countries other than your own. Where required, the responsible
+        party uses contractual, legal, or organizational safeguards for international transfers.
       </p>
     </section>
 
     <section id="children">
-      <h2>10. Children's privacy</h2>
-      <p>SnappFeed is not specifically designed for or marketed to children.</p>
+      <h2>12. Children's privacy</h2>
       <p>
-        The developer does not knowingly collect children's personal information on a SnappFeed-operated
-        server. Parents and guardians should manage a child's access to photos and location information
-        using the permission, parental-control, Screen Time, or Family Link features available on the device.
-      </p>
-    </section>
-
-    <section id="international">
-      <h2>11. International processing</h2>
-      <p>
-        Third-party providers such as Google and Apple may process technical or service-related information
-        in countries other than the country where you live. Such processing is governed by those providers'
-        privacy policies, contractual terms, and applicable legal safeguards.
-      </p>
-    </section>
-
-    <section id="external-links">
-      <h2>12. External links</h2>
-      <p>
-        SnappFeed or this Privacy Policy may contain links to third-party websites. SnappFeed is not
-        responsible for the content or privacy practices of those websites. You should review the privacy
-        policy of each external service you use.
+        SnappFeed is not specifically directed to children. The App publisher does not knowingly use the
+        local journal to collect children's personal information on a SnappFeed-operated server. Parents
+        and guardians should use device parental controls and supervise a child's use of photos, image URLs,
+        HTML, location, maps, and notifications.
       </p>
     </section>
 
     <section id="changes">
-      <h2>13. Changes to this Privacy Policy</h2>
+      <h2>13. Changes and contact</h2>
       <p>
-        This Privacy Policy may be updated when SnappFeed's features, permissions, third-party services,
-        software components, or legal obligations change.
+        This Policy may be updated when SnappFeed features, permissions, SDKs, service providers, or legal
+        requirements change. The date at the top will be revised. Material changes may also be communicated
+        in the App or on the store listing.
       </p>
-      <p>
-        The <strong>Last updated</strong> date at the top of this page will be revised when changes are
-        published. If a change materially affects how information is used, an appropriate notice may also
-        be provided within the app, on the app's store listing, or on this website.
-      </p>
-    </section>
-
-    <section id="contact">
-      <h2>14. Contact</h2>
-      <p>For privacy questions or requests, contact:</p>
+      <p>For questions or requests about the native App, contact:</p>
       <p>
         <strong>Zakez Fayaz</strong><br>
         Email: <a href="mailto:zakezfayaz@outlook.com">zakezfayaz@outlook.com</a>
@@ -493,7 +482,6 @@
     </section>
 
     <footer>
-      <a href="support.html">Support</a><br><br>
       © 2026 Zakez Fayaz. SnappFeed Privacy Policy.
     </footer>
   </main>
